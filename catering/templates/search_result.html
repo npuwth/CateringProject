@@ -1,0 +1,360 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% if dish_search_result == True %}
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card gradient-forest">
+                            <div class="card gradient-forest"><h4 style="color:white">商品查询结果</h4></div>
+                            <div class="card-body text-center p-5">
+                                <div class="table-responsive">
+                                    <div id="default-datatable_wrapper"
+                                         class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table table-dark table-striped shadow-dark"
+                                                   role="grid" aria-describedby="default-datatable_info">
+                                                <thead>
+                                                <tr role="row">
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>商品图片</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Position: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>商品名称</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>窗口名称</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>窗口位置</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>商品价格</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>商品评分</p>
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending"
+                                                        style="width: 100px;font-size:17px"><p>商品月销量</p>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for dish_obj in dish_obj_list %}
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1"
+                                                            style="width: 50px">
+                                                            <a href="{% static dish_obj.image_set.first.img_address.name %}"
+                                                               data-fancybox="group2"
+                                                               data-caption="{{ dish_obj.name }}">
+                                                                <img src="{% static dish_obj.image_set.first.img_address.name %}"
+                                                                     alt="lightbox"
+                                                                     class="lightbox-thumb img-thumbnail">
+                                                            </a>
+                                                        </td>
+                                                        <td>{{ dish_obj.name }}</td>
+                                                        <td>{{ dish_obj.win_id.name }}</td>
+                                                        <td>{{ dish_obj.win_id.place }}</td>
+                                                        <td>{{ dish_obj.price }}</td>
+                                                        <td>{{ dish_obj.avg_star }}</td>
+                                                        <td>{{ dish_obj.mon_sale }}</td>
+
+                                                    </tr>
+                                                {% endfor %}
+
+
+                                                </tbody>
+
+                                            </table>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Row-->
+
+        </div>
+    {% elif window_search_result == True %}
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card gradient-forest">
+                            <div class="card gradient-forest"><h4 style="color:white">窗口查询结果</h4></div>
+                            <div class="card-body text-center p-5">
+                                <div class="table-responsive">
+                                    <div id="default-datatable_wrapper"
+                                         class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table id="default-datatable"
+                                                   class="table table-dark table-striped shadow-dark"
+                                                   role="grid" aria-describedby="default-datatable_info">
+                                                <thead>
+                                                <tr role="row">
+
+                                                    <th class="sorting_asc" tabindex="0"
+                                                        aria-controls="default-datatable" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="Name: activate to sort column descending"
+                                                        style="width: 50px;
+                                                    font-size:17px">
+                                                        <p>窗口名称</p>
+                                                    </th>
+                                                    <th class="sorting_asc" tabindex="0"
+                                                        aria-controls="default-datatable" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="Name: activate to sort column descending"
+                                                        style="width: 50px;
+                                                    font-size:17px">
+                                                        <p>窗口位置</p>
+                                                    </th>
+                                                    <th class="sorting_asc" tabindex="0"
+                                                        aria-controls="default-datatable" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="Name: activate to sort column descending"
+                                                        style="width: 50px;
+                                                    font-size:17px">
+                                                        <p>平均价格</p>
+                                                    </th>
+                                                    <th class="sorting_asc" tabindex="0"
+                                                        aria-controls="default-datatable" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="Name: activate to sort column descending"
+                                                        style="width: 50px;
+                                                    font-size:17px">
+                                                        <p>平均评分</p>
+                                                    </th>
+                                                    <th class="sorting_asc" tabindex="0"
+                                                        aria-controls="default-datatable" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="Name: activate to sort column descending"
+                                                        style="width: 50px;
+                                                    font-size:17px">
+                                                        <p>窗口月销量</p>
+                                                    </th>
+                                                    <th class="sorting_asc" tabindex="0"
+                                                        aria-controls="default-datatable" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="Name: activate to sort column descending"
+                                                        style="width: 50px;
+                                                    font-size:17px">
+                                                        <p>窗口供应商</p>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for window_obj in window_obj_list %}
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1">{{ window_obj.name }}</td>
+                                                        <td>{{ window_obj.place }}</td>
+                                                        <td>{{ window_obj.avg_price }}</td>
+                                                        <td>{{ window_obj.avg_star }}</td>
+                                                        <td>{{ window_obj.mon_sale }}</td>
+                                                        <td>{{ window_obj.pro_id.name }}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% elif provider_search_result == True %}
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card gradient-forest">
+                            <div class="card gradient-forest"><h4 style="color:white">供应商查询结果</h4></div>
+                            <div class="card-body text-center p-5">
+                                <div class="table-responsive">
+                                    <div id="default-datatable_wrapper"
+                                         class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table id="default-datatable"
+                                                   class="table table-dark table-striped shadow-dark"
+                                                   role="grid" aria-describedby="default-datatable_info">
+                                                <thead>
+                                                <tr role="row">
+
+                                                <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Name: activate to sort column descending"
+                                                    style="width: 225px;font-size:17px"><p>供应商名称</p>
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Name: activate to sort column descending"
+                                                    style="width: 101px;font-size:17px"><p>供应商地址</p>
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="default-datatable"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Name: activate to sort column descending"
+                                                    style="width: 101px;font-size:17px"><p>供应商电话</p>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for provider_obj in provider_obj_list %}
+                                                <tr role="row" class="odd">
+{#                                                    <td class="sorting_1">{{ provider_obj.id }}</td>#}
+                                                    <td calss="sorting_1">{{ provider_obj.name }}</td>
+                                                    <td>{{ provider_obj.address }}</td>
+                                                    <td>{{ provider_obj.telephone }}</td>
+                                                </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% elif user_search_result == True %}
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card gradient-forest">
+                            <div class="card gradient-forest"><h4 style="color:white">用户查询结果</h4></div>
+                            <div class="card-body text-center p-5">
+                                <div class="table-responsive">
+                                    <div id="default-datatable_wrapper"
+                                         class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table id="default-datatable"
+                                                   class="table table-dark table-striped shadow-dark"
+                                                   role="grid" aria-describedby="default-datatable_info">
+                                                <thead>
+                                                <tr role="row">
+
+                                                    <th class="sorting_asc" tabindex="0"
+                                                        aria-controls="default-datatable" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="Name: activate to sort column descending"
+                                                        style="width: 50px;
+                                                    font-size:17px">
+                                                        <p>用户名</p>
+                                                    </th>
+
+                                                    <th class="sorting_asc" tabindex="0"
+                                                        aria-controls="default-datatable" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="Name: activate to sort column descending"
+                                                        style="width: 50px;
+                                                    font-size:17px">
+                                                        <p>学工号</p>
+                                                    </th>
+
+                                                    <th class="sorting_asc" tabindex="0"
+                                                        aria-controls="default-datatable" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="Name: activate to sort column descending"
+                                                        style="width: 50px;
+                                                    font-size:17px">
+                                                        <p>电话号码</p>
+                                                    </th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for user_obj in user_obj_list %}
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1">{{ user_obj.name }}</td>
+
+                                                        <td>{{ user_obj.number }}</td>
+
+                                                        <td>{{ user_obj.telephone }}</td>
+
+                                                    </tr>
+                                                {% endfor %}
+
+
+                                                </tbody>
+
+                                            </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div id="wrapper">
+
+            <div class="container ml-auto mr-auto">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center error-pages">
+                            <h1 class="error-title text-white"> 404</h1>
+                            <h2 class="error-sub-title text-white">查询失败</h2>
+
+                            <p class="error-message text-white text-uppercase">{{ error_msg }}</p>
+
+                            <div class="mt-4">
+                                <a href="/catering/index/" class="btn btn-info btn-round shadow-info m-1">返回主页</a>
+                                {#                          <a href="javascript:void();" class="btn btn-info btn-round m-1">Previous Page </a>#}
+                            </div>
+
+
+                            <hr class="w-50 border-light-2">
+                            <hr class="w-50 border-light-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!--wrapper-->
+    {% endif %}
+{% endblock %}
+

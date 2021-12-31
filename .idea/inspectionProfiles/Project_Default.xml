@@ -1,0 +1,42 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredPackages">
+        <value>
+          <list size="28">
+            <item index="0" class="java.lang.String" itemvalue="easydict" />
+            <item index="1" class="java.lang.String" itemvalue="tensorboardX" />
+            <item index="2" class="java.lang.String" itemvalue="dill" />
+            <item index="3" class="java.lang.String" itemvalue="dlib" />
+            <item index="4" class="java.lang.String" itemvalue="dominate" />
+            <item index="5" class="java.lang.String" itemvalue="wandb" />
+            <item index="6" class="java.lang.String" itemvalue="pillow" />
+            <item index="7" class="java.lang.String" itemvalue="ffmpeg-python" />
+            <item index="8" class="java.lang.String" itemvalue="fastai" />
+            <item index="9" class="java.lang.String" itemvalue="mysqlclient" />
+            <item index="10" class="java.lang.String" itemvalue="six" />
+            <item index="11" class="java.lang.String" itemvalue="raven" />
+            <item index="12" class="java.lang.String" itemvalue="djangorestframework-jwt" />
+            <item index="13" class="java.lang.String" itemvalue="django-crispy-forms" />
+            <item index="14" class="java.lang.String" itemvalue="httplib2" />
+            <item index="15" class="java.lang.String" itemvalue="xlwt" />
+            <item index="16" class="java.lang.String" itemvalue="requests" />
+            <item index="17" class="java.lang.String" itemvalue="xlsxwriter" />
+            <item index="18" class="java.lang.String" itemvalue="django-reversion" />
+            <item index="19" class="java.lang.String" itemvalue="coreapi" />
+            <item index="20" class="java.lang.String" itemvalue="drf-extensions" />
+            <item index="21" class="java.lang.String" itemvalue="django-filter" />
+            <item index="22" class="java.lang.String" itemvalue="future" />
+            <item index="23" class="java.lang.String" itemvalue="django-redis" />
+            <item index="24" class="java.lang.String" itemvalue="markdown" />
+            <item index="25" class="java.lang.String" itemvalue="pycryptodome" />
+            <item index="26" class="java.lang.String" itemvalue="django-formtools" />
+            <item index="27" class="java.lang.String" itemvalue="django-cors-headers" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
